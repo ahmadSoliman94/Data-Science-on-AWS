@@ -47,5 +47,21 @@ Cloud computing enables rapid global deployment of data science applications, al
 #### MLflow is an open source project that initially focused on experiment tracking but now supports pipelines called MLflow Workflows. We can use MLflow to track experiments with Kubeflow and Apache Airflow workflows as well
 
 
+## Amazon AI Services:
 
+![](./image/2.png)
 
+<br />
+
+### - Data Lake:
+A data lake is a centralized, secure repository that allows for the storage, governance, discovery, and sharing of data at any scale. It supports various kinds of analytics and uses multiple AWS services without requiring data transformation. Data lakes store structured, semi-structured, and unstructured data, and can ingest real-time data, making them useful for data science and machine learning teams to develop and deploy accurate models.
+
+Amazon S3, an object storage service, is integral for data lakes on AWS, offering high durability and consistent access. It allows for data organization with stringent access controls to satisfy business and compliance needs.
+
+AWS Lake Formation enhances data lake creation by collecting, cataloging, and securing data from databases and object storage with the help of machine learning. AWS Glue provides a scalable, serverless data catalog and preparation service, including an ETL engine and data transformation capabilities. It also features AWS Glue DataBrew, which facilitates data ingestion, analysis, visualization, and transformation through an easy-to-use interface.
+
+## Model Deployment with Amazon:
+
+1. **SageMaker Endpoints:** This method is ideal for applications requiring low-latency, real-time predictions. A SageMaker endpoint is created to host the model, providing a REST API for serving predictions. This service supports auto-scaling and is deployed across multiple Availability Zones (AZs) to ensure high availability.
+2. **SageMaker Batch Transform:** Suitable for scenarios where predictions are needed for entire datasets rather than in real-time. This service is optimized for high throughput, using a batch process that spins up resources to handle large-scale predictions on data stored in S3. After processing, the results are saved back to S3 and the resources are decommissioned.
+3. **Serverless Model Deployment with AWS Lambda:** For serverless predictions, a model trained with SageMaker can be served using an AWS Lambda function. This function retrieves the model from S3 and provides predictions. It is important to note that Lambda has limitations in terms of memory and latency, which should be tested thoroughly if considering this deployment option for large-scale use.
